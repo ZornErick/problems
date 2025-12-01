@@ -1,4 +1,4 @@
-package main.hackerrank.algorithms.warmup;
+package main.hackerrank.algorithms.arrays;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class MHourglassSum {
+public class AHourglassSum {
     public static int hourglassSum(List<List<Integer>> arr) {
         int result = Integer.MIN_VALUE;
 
