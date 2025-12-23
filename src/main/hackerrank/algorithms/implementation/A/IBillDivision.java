@@ -1,4 +1,4 @@
-package main.hackerrank.algorithms.implementation;
+package main.hackerrank.algorithms.implementation.A;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,19 +8,17 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class FDivisibleSumPairs {
-    public static int divisibleSumPairs(int n, int k, List<Integer> ar) {
-        int result = 0;
+public class IBillDivision {
+    public static void bonAppetit(List<Integer> bill, int k, int b) {
+        bill.remove(k);
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if ((ar.get(i) + ar.get(j)) % k == 0) {
-                    result++;
-                }
-            }
+        int annaAccount = bill.stream().mapToInt(Integer::intValue).sum() / 2;
+
+        if (annaAccount == b) {
+            System.out.println("Bon Appetit");
+        } else {
+            System.out.println(b - annaAccount);
         }
-
-        return result;
     }
 
     public static void main(String[] args) throws IOException {
@@ -32,12 +30,13 @@ public class FDivisibleSumPairs {
 
         int k = Integer.parseInt(firstMultipleInput[1]);
 
-        List<Integer> ar = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+        List<Integer> bill = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
                 .map(Integer::parseInt)
                 .collect(toList());
 
-        int result = divisibleSumPairs(n, k, ar);
-        System.out.println(result);
+        int b = Integer.parseInt(bufferedReader.readLine().trim());
+
+        bonAppetit(bill, k, b);
 
         bufferedReader.close();
     }
